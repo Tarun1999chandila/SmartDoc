@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<h1 style ="font-size:60px"class="ui header">Get In Touch</h1>
+
+{% if current_user.is_authenticated %}
+<div class = "sahil" ><h2 style ="font-size:45px" class="ui header">SmartDoc{{ current_user.name }}</h2>
+<div style = "font-size : 35px"><p>Address - xyz street abc-111111</p>
+<p>Email-xyz@SmartDoc.com</p>
+<p>Ph.no-999999999</p>
+</div></div>
+{% endif %}
+
+<style>
+	.home_content {
+		display: none;
+	}
+	.sahil{
+		height:300px;
+		width:600px;
+		box-shadow:   5px 5px 5px 5px #754B38;
+
+	}
+
+
+</style>
+
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<!-- <h1 class="ui header">{{title}}</h1> -->
+{% if current_user.is_authenticated %}
+
+<style>
+  .home_content {
+    display: none;
+  }
+</style>
+
+<!Doctype html>
+<html>
+
+<body>
+
+  <!-- <div class="row center" style="margin-top:4%;">
+    <div style="margin-left:25% ;">
+      <div class="column" style="background-color:rgb(255, 235, 185);margin: auto;">
+        <h2>One-time</h2>
+        <p>• 10 USD per automated diagnosis</p>
+        <p>• Email support</p>
+        <p>• Instant Delivery</p>
+        <form action="/user/charge" method="post">
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="pk_test_HH9RA46skKrRZjPSUxkDvnlc00EviPoRre" data-description="A Flask Charge" data-amount="1000"
+            data-email="{{ email }}" data-locale="auto"></script>
+        </form>
+      </div>
+      <div class="column" style="background-color:rgb(255, 212, 102);margin: auto;">
+        <h2>Enterprise</h2>
+        <p>• Unlimited Diagnoses</p>
+        <p>• 24/7 Phone Support</p>
+        <p>• Custom Tooling</p>
+        <p>• Contact us for a price quote</p>
+        <form action="/user/charge" method="post">
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="pk_test_HH9RA46skKrRZjPSUxkDvnlc00EviPoRre" data-description="A Flask Charge" data-amount="200000"
+            data-email="{{ email }}" data-locale="auto"></script>
+        </form>
+      </div>
+    </div>
+  </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <span id="loaded_image"></span>
+<form action="http://localhost:5000/uploaded" style="margin-top:5%;" method="POST" enctype="multipart/form-data">
+      <input class="ui primary button file_input" onchange="handleChange()" type="file" name="file" />
+      <input class="ui primary button" style="font-size: 1.2em;" value="Submit" type="submit" />
+</form>
+
+<style>
+      .home_content {
+            display: none;
+      }
+</style>
+
+<script>
+      function handleChange() {
+            let ele = document.getElementById('loaded_image')
+            let file = document.getElementsByClassName('file_input')[0].files[0].name
+            let img = document.createElement('img')
+            if (ele.innerHTML != '') {
+                  let sel_img = document.getElementsByClassName('selected_image')[0]
+                  ele.removeChild(sel_img)
+            }
+            img.setAttribute('src', `/static/img/test/${file}`)
+            img.setAttribute('style', 'width:600px; height:350px; border:3px solid #30201A; border-radius:20px;')
+            img.setAttribute('class', 'selected_image')
+            ele.appendChild(img)
+      }
+</script>
+
+</body>
+
+</html>
+
+
+
+
+{% endif %}
+
+{% endblock %}

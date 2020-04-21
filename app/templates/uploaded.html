@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- <body>
+	 <img src="" alt="Italian Trulli"> 
+
+					 {{ predictions }}
+					<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>  -->
+<body>
+<!-- <h2>Results</h2>
+
+<table>
+  <tr>
+    <th><b>Disease</b></th>
+    <th>Percent Likelihood</th>
+  </tr>
+  <tr>
+    <td> {{ predictions }}</td>
+    <td>98%</td>
+  </tr>
+  <tr>
+    <td>Fibrosis</td>
+    <td>43%</td>
+  </tr>
+</table> -->
+  <!-- {{ predictions }} -->
+  <style>
+    .home_content {
+      display: none;
+    }
+
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+  </head>
+
+  <body>
+
+    <img style="border-radius:20px;" src="static/img/test/{{user_image}}" width="600px" height="300px">
+
+    <h2>Results</h2>
+
+    <table>
+      <tr>
+        <th>Disease</th>
+        <th>Percent Likelihood</th>
+      </tr>
+      <tr>
+        <th>PNEUMONIA</th>
+        <th> {{(((predictions)[0])[0]*100)}} % </th>
+      </tr>
+    </table>
+
+  </body>
+
+</html>
+<title>Index</title>
+</head>
+
+<body>
+</body>
+
+</html>
+
+
+{% endblock %}

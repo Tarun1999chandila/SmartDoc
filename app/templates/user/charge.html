@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- <center> <h2><font color='white'>Thanks, you paid <strong>$10.00</strong>!</font></h2> -->
+<h2>
+      <font color='white'>Upload your image below</font>
+</h2>
+<!-- <img src="https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2018/08/untitled.png?itok=ualUMeJN&fc=50,50"></center> -->
+
+<span id="loaded_image"></span>
+<form action="http://localhost:5000/uploaded" style="margin-top:5%;" method="POST" enctype="multipart/form-data">
+      <input class="ui primary button file_input" onchange="handleChange()" type="file" name="file" />
+      <input class="ui primary button" style="font-size: 1.2em;" value="Submit" type="submit" />
+</form>
+
+<style>
+      .home_content {
+            display: none;
+      }
+</style>
+
+<script>
+      function handleChange() {
+            let ele = document.getElementById('loaded_image')
+            let file = document.getElementsByClassName('file_input')[0].files[0].name
+            let img = document.createElement('img')
+            if (ele.innerHTML != '') {
+                  let sel_img = document.getElementsByClassName('selected_image')[0]
+                  ele.removeChild(sel_img)
+            }
+            img.setAttribute('src', `/static/img/test/${file}`)
+            img.setAttribute('style', 'width:600px; height:350px; border:3px solid #30201A; border-radius:20px;')
+            img.setAttribute('class', 'selected_image')
+            ele.appendChild(img)
+      }
+</script>
+{% endblock %}
